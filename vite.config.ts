@@ -6,9 +6,11 @@ import { defineConfig } from 'vitest/config'
 export default defineConfig(({ mode }) => {
   const localJotai = path.resolve(__dirname, 'jotai/src')
   const hasLocalJotai = fs.existsSync(localJotai)
+  const localJotaiEffect = path.resolve(__dirname, 'jotai-effect/src')
   const alias = {}
   if ((mode === 'development' || mode === 'test') && hasLocalJotai) {
     alias['jotai'] = localJotai
+    alias['jotai-effect'] = localJotaiEffect
     alias['jotai-scope'] = path.resolve(__dirname, 'src')
   }
 
